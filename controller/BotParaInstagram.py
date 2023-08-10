@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import time
+import random
 
 class IgBot:
     def __init__(self,username,password):
@@ -39,10 +41,11 @@ class IgBot:
     
     def Like(self, hashtag):
         driver = self.driver
-        driver.get('https://www.instagram.com/explore/tags/'+hashtag+'/')
-
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    
+        driver.get("https://www.instagram.com/explore/tags/" + hashtag + "/")
+        time.sleep(5)
+        for i in range(1, 3):
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(3)
 
 leaBot = IgBot('ale26bday','?Snow759')
 
